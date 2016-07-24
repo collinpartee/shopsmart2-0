@@ -1,5 +1,4 @@
 <ion-view class="custom-font1" style="background-color:black;">
-    <!--    <ion-content class="has-header">-->
     <ion-slide-box class="animate-intro" on-slide-changed="slideHasChanged($index)" style="height: 100%;" ng-show="showIntro=='true'">
         <ion-slide>
             <div class="box">
@@ -20,47 +19,42 @@
             <div class="box">
                 <img class="introImage" src="img/step4.png" />
                 <div class="floating-button">
-                    <button class="button button-positive" ng-click="finishIntro()" style="width:100%; background-color: goldenrod; border-color:goldenrod;">Start shopping!</button>
+                    <button class="button quitIntroBtn" ng-click="finishIntro()">Start shopping!</button>
                 </div>
             </div>
         </ion-slide>
-
     </ion-slide-box>
-    <div class="container animate-container">
 
-
+    <div class="container">
         <div class="top">
             <div class="total_price_bubble" ng-hide="(all_prices | sumOfValue:'total') == 0">${{all_prices | sumOfValue:'total'}}</div>
-            <div class="">
-
-                <h3 id="original_price_label" class="">
-                        <span class="custom-font1" ng-show="total_price == 0" class="custom-font1">Total Price</span>
-                        <span class="custom-font1" ng-hide="total_price == 0" class="custom-font2" >${{total_price}}</span>
-                    </h3>
+            <div>
+                <h3 id="original_price_label">
+                    <span class="custom-font1" ng-show="total_price == 0">Total Price</span>
+                    <span class="custom-font2" ng-hide="total_price == 0">${{total_price}}</span>
+                </h3>
             </div>
 
-            <div class="">
+            <div>
                 <h4 id="total_price_label" class="custom-font2">
-                        <span class="animate-fadeIn" ng-show="original_price == '' ">Original Price</span>
-                        <span class="animate-fadeIn" ng-hide="original_price == '' ">${{original_price}}</span>
-                    
-                    </h4>
+                    <span class="animate-fadeIn" ng-show="original_price == '' ">Original Price</span>
+                    <span class="animate-fadeIn" ng-hide="original_price == '' ">${{original_price}}</span>
+                </h4>
             </div>
 
-            <div class="">
+            <div>
                 <h5 id="percent_text_label" class="custom-font2">
-                        <span class="animate-fadeIn" ng-hide="x==0">{{(x%5)?x-x%5+5:x}}</span>
-                        <span class="custom-font1"> percent off</span>
-                    </h5>
+                    <span class="animate-fadeIn" ng-hide="x==0">{{(x%5)?x-x%5+5:x}}</span>
+                    <span class="custom-font1"> percent off</span>
+                </h5>
             </div>
 
-            <div style="display:none; top: 20%;" id="hidden_item"></div>
+            <!--            <div style="display:none; top: 20%;" id="hidden_item"></div>-->
             <div class="discount-slider">
                 <div class="item range range-positive">
                     <input type="range" name="percent_off" ng-model="x" ng-change="updateTotal(x)">
                 </div>
             </div>
-
         </div>
         <!-- end of .top -->
         <div class="middle custom-font1">
@@ -82,16 +76,13 @@
             <div class="row">
                 <button type="button" class="number_pad_buttons col-33 button button-dark-custom" ng-click="decimal()">.</button>
                 <button type="button" class="number_pad_buttons col-33 button button-dark-custom" ng-click="zero()">0</button>
-                <button type="button" class="number_pad_buttons col-33 button button-dark-custom ion-backspace-outline" ng-click="clear()" style="color: red; font-size: 2.7em;"></button>
+                <button type="button" class="number_pad_buttons col-33 button button-dark-custom ion-backspace-outline" ng-click="clear()" id="clear-button"></button>
             </div>
             <div class="row">
                 <button type="button" class="number_pad_buttons_equal button " ng-click="equal()" ng-hide="press_equal">Equal</button>
                 <button type="button" class="number_pad_buttons_add button animation bounceInUp" ng-click="addToList()" ng-show="press_equal">Add to Cart</button>
-
             </div>
-
         </div>
-
+        <!-- end of calc buttons -->
     </div>
-    <!--        </ion-content>-->
 </ion-view>

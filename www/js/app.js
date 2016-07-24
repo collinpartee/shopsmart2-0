@@ -30,7 +30,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 'n
             .state('app', {
                 url: '/app',
                 abstract: true,
-                templateUrl: 'templates/menu.html',
+                templateUrl: 'templates/sidemenus.html',
                 controller: 'sideMenuController'
             })
             .state('app.mainScreen', {
