@@ -1,0 +1,150 @@
+<ion-side-menus enable-menu-with-back-views="false">
+    <ion-side-menu-content>
+
+        <ion-nav-view name="menuContent"></ion-nav-view>
+    </ion-side-menu-content>
+
+    <!--SHOPPING LIST SIDE MENU-->
+    <ion-side-menu side="left">
+        <ion-content scroll="false" class="" style="padding-top: 18pt;" ng-init="showThings = true">
+            <div class="animateSideMenu" ng-show="!showThings" style="height: 92%;">
+                <div class="row" style="height: 12%;">
+                    <div class="row-content">
+                        <div class="custom-col2">
+                            <span ng-hide="(all_prices | sumOfValue:'total') != 0 " class="custom-font1 animate-fadeIn" style="color: white;">Total Price</span>
+
+                            <span ng-hide="(all_prices | sumOfValue:'total') == 0" class="custom-font2 animate-fadeIn" style="color: white; float: right;">${{all_prices | sumOfValue:'total'}}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <ion-scroll style="height: 88%;">
+                    <ion-list can-swipe="true" class="custom-list">
+                        <ion-item ng-if="all_prices.length == 0" style="background-color: #1d1d1d;">
+                            <span style="color:white;" class="custom-font1">
+				                Happy Shopping!
+                            </span>
+                        </ion-item>
+                        <!--  -->
+                        <ion-item ng-if="all_prices.length > 0" item="item" item-type="item item-icon-left" style="background-color: #1d1d1d;">
+                            <span class="item-note custom-font2" style="color:white; padding-right: 15px;">total price</span>
+                            <span class="left-list-item custom-font2" style="color:white;">original price</span>
+                        </ion-item>
+
+                        <ion-item class="custom-list-item" ng-repeat="prices in all_prices track by $index" item="item" item-type="item item-icon-left">
+                            <div class="item-note custom-font2 item-note-total" style="color:white;">${{prices.total}}<span class="badge" ng-hide="prices.percentage < 1" data-count="{{prices.percentage | percentFilter}}% ">c</span></div>
+
+                            <span class="left-list-item custom-font2" style="color:white;">${{ prices.original }}</span>
+
+                            <ion-option-button class="button-assertive" ng-click="edit($index)">
+                                <i class="icon ion-close option_button" style="color: white;"></i>
+                            </ion-option-button>
+                        </ion-item>
+                    </ion-list>
+                </ion-scroll>
+            </div>
+
+            <div class="animateSideMenu" ng-show="showThings" style="height: 92%;">
+                <div class="row" style="background-color: rgba(36, 34, 34, 0.5); height: 12%;">
+                    <div class="row-content">
+                        <input type="text" class="col" id="thingItem" placeholder="what are we buying today?" ng-model="thingItem.item" style="background-color: rgba(36, 34, 34, 0.5); padding: 25px 15px;color:white" />
+                        <button ng-hide="!thingItem.item.length > 0" class="button button-clear col col-20 animate-slideInLeft" ng-click="addItemToThings(thingItem.item)" style="color: rgb(127, 197, 195);">
+                            <span><i class="icon ion-plus-round"></i></span>
+                        </button>
+
+                    </div>
+                </div>
+                <ion-scroll style="height: 88%;" ng-init="checked = false">
+                    <ion-list class="custom-list">
+                        <!--  -->
+
+                        <ion-item class="custom-list-item" ng-click="checked = !checked" ng-repeat="things in thingsList track by $index" item="item">
+                            <div class="custom-font2 item-note-total" style="color:white; display:flex;">
+                                <span ng-class="{'checkedThing': checked}">
+                                <span class="thing-item" style="margin: auto 0; color: white;">{{things}}</span>
+                                </span>
+                            </div>
+                            <ion-option-button class="button-assertive" ng-click="deleteThing($index)">
+                                <i class="icon ion-close option_button" style="color: white;"></i>
+                            </ion-option-button>
+                        </ion-item>
+                    </ion-list>
+                </ion-scroll>
+            </div>
+
+            <div class="button-bar button-bar-custom" style="height: 8%;">
+
+                <a class="button" ng-click="showThings = false" ng-class="{ 'button-bar-activated': !showThings}">Shopping Cart</a>
+                <a class="button" ng-click="showThings = true" ng-class="{ 'button-bar-activated': showThings}">Shopping List</a>
+            </div>
+
+            <div class="watermark watermark2"><img src="img/happy50.png" /></div>
+
+        </ion-content>
+    </ion-side-menu>
+
+    <!--TAX SIDE MENU-->
+    <ion-side-menu side="right">
+        <ion-content scroll="false" class="" style="padding-top: 18pt;" ng-init="showList = true">
+            <div class="animateSideMenu" ng-show="showList" style="height: 92%;">
+                <div class="row" style="height: 12%;">
+                    <div class="row-content">
+                        <div class="custom-col2">
+                            <span ng-hide="(all_prices | sumOfValue:'total') != 0 " class="custom-font1 animate-fadeIn" style="color: white;">Total Price</span>
+
+                            <span ng-hide="(all_prices | sumOfValue:'total') == 0" class="custom-font2 animate-fadeIn" style="color: white; float: right;">
+                                ${{all_prices | sumOfValue:'total'}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <ion-scroll style="height: 88%;">
+                    <ion-list can-swipe="true" class="custom-list">
+                        <ion-item ng-if="all_prices.length == 0" style="background-color: #1d1d1d;">
+                            <span style="color:white" class="custom-font1">
+				Happy Shopping!
+                    </span>
+                        </ion-item>
+                        <!--  -->
+                        <ion-item class="custom-list-item" ng-if="all_prices.length > 0" item="item" item-type="item item-icon-left" style="background-color: #1d1d1d;">
+                            <span class="item-note custom-font2" style="color:white; padding-right: 15px;">total price</span>
+                            <span class="left-list-item custom-font2" style="color:white;">original price</span>
+                        </ion-item>
+
+                        <ion-item ng-repeat="prices in all_prices track by $index" item="item" item-type="item item-icon-left">
+                            <div class="item-note custom-font2 item-note-total" style="color:white;">${{prices.total}}<span class="badge" ng-hide="prices.percentage < 1" data-count="{{prices.percentage | percentFilter}}% ">c</span></div>
+
+                            <span class="left-list-item custom-font2" style="color:white;">${{ prices.original }}</span>
+
+                            <ion-option-button class="button-assertive" ng-click="edit($index)">
+                                <i class="icon ion-close option_button" style="color: white;"></i>
+                            </ion-option-button>
+                        </ion-item>
+                    </ion-list>
+                </ion-scroll>
+            </div>
+
+            <div class="tax_block vertical-align-middle" ng-show="!showList" styl>
+                <div class="row" style="margin-left:5px;">
+                    <div class="row-container">
+                        <button class="button button-icon ion-minus circle-button" ng-click="decreaseTax()"></button>
+                        <div class="custom_row">
+                            <h1 class="custom-font2" style="font-size: 4em; margin-bottom: 0px; color:white;">{{tax_amount}}%</h1>
+                            <h4 class="custom-font1">tax</h4>
+                        </div>
+                        <button class="button button-icon ion-plus circle-button" ng-click="increaseTax()"></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="button-bar button-bar-custom" style="height: 8%;">
+                <a class="button" ng-click="showList = true" ng-class="{ 'button-bar-activated': showList}">Shopping Cart</a>
+                <a class="button" ng-click="showList = false" ng-class="{ 'button-bar-activated': !showList}">Tax</a>
+            </div>
+            <div class="watermark watermark2"><img src="img/happy50.png" /></div>
+
+        </ion-content>
+    </ion-side-menu>
+
+</ion-side-menus>
