@@ -1,4 +1,4 @@
-<ion-view class="custom-font1" style="background-color:black;">
+<ion-view class="custom-font1">
     <ion-slide-box class="animate-intro" on-slide-changed="slideHasChanged($index)" style="height: 100%;" ng-show="showIntro=='true'">
         <ion-slide>
             <div class="box">
@@ -19,37 +19,40 @@
             <div class="box">
                 <img class="introImage" src="img/step4.png" />
                 <div class="floating-button">
-                    <button class="button quitIntroBtn" ng-click="finishIntro()">Start shopping!</button>
+                    <button class="button quitIntroBtn" ng-class="{'dark-quitIntroBtn': theme=='dark'}" ng-click="finishIntro()">Start shopping!</button>
                 </div>
             </div>
         </ion-slide>
     </ion-slide-box>
-
-    <div class="container">
+    <div class="bar bar-header" ng-class="{'dark': theme == 'dark'}">
+            <button class="button button-icon" ng-click="toggleLeftSideMenu()"><i class="icon ion-android-menu" ng-class="{'dark-icon': theme=='dark'}"></i></button>
+<!--        <div class="title">Header</div>-->
+        <button class="button button-icon"  ng-click="toggleRightSideMenu()"><i class="icon ion-gear-a" ng-class="{'dark-icon': theme=='dark'}"></i></button>
+    </div>
+    <div class="container" ng-class="{'dark': theme=='dark'}">
         <div class="top">
-            <div class="total_price_bubble" ng-hide="(all_prices | sumOfValue:'total') == 0">${{all_prices | sumOfValue:'total'}}</div>
+            <div class="total_price_bubble" ng-class="{'dark-totalPriceBubble': theme=='dark'}" ng-hide="(all_prices | sumOfValue:'total') == 0">${{all_prices | sumOfValue:'total'}}</div>
             <div>
-                <h3 id="original_price_label">
+                <h3 id="original_price_label" ng-class="{'dark-textLght': theme=='dark'}">
                     <span class="custom-font1" ng-show="total_price == 0">Total Price</span>
                     <span class="custom-font2" ng-hide="total_price == 0">${{total_price}}</span>
                 </h3>
             </div>
 
             <div>
-                <h4 id="total_price_label" class="custom-font2">
+                <h4 id="total_price_label" class="custom-font2" ng-class="{'dark-textAccent': theme=='dark'}">
                     <span class="animate-fadeIn" ng-show="original_price == '' ">Original Price</span>
                     <span class="animate-fadeIn" ng-hide="original_price == '' ">${{original_price}}</span>
                 </h4>
             </div>
 
             <div>
-                <h5 id="percent_text_label" class="custom-font2">
+                <h5 id="percent_text_label" class="custom-font2" ng-class="{'dark-textLght': theme=='dark'}">
                     <span class="animate-fadeIn" ng-hide="x==0">{{(x%5)?x-x%5+5:x}}</span>
                     <span class="custom-font1"> percent off</span>
                 </h5>
             </div>
 
-            <!--            <div style="display:none; top: 20%;" id="hidden_item"></div>-->
             <div class="discount-slider">
                 <div class="item range range-positive">
                     <input type="range" name="percent_off" ng-model="x" ng-change="updateTotal(x)">
@@ -59,28 +62,28 @@
         <!-- end of .top -->
         <div class="middle custom-font1">
             <div class="row">
-                <button type="button" class="number_pad_buttons col-33 button button-dark-custom" ng-click="one()">1</button>
-                <button type="button" class="number_pad_buttons col-33 button button-dark-custom" ng-click="two()">2</button>
-                <button type="button" class="number_pad_buttons col-33 button button-dark-custom" ng-click="three()">3</button>
+                <button type="button" class="number_pad_buttons col-33 button" ng-class="{'dark-numberButtons': theme=='dark'}" ng-click="one()">1</button>
+                <button type="button" class="number_pad_buttons col-33 button " ng-class="{'dark-numberButtons': theme=='dark'}" ng-click="two()">2</button>
+                <button type="button" class="number_pad_buttons col-33 button " ng-class="{'dark-numberButtons': theme=='dark'}" ng-click="three()">3</button>
             </div>
             <div class="row">
-                <button type="button" class="number_pad_buttons col-33 button button-dark-custom" ng-click="four()">4</button>
-                <button type="button" class="number_pad_buttons col-33 button button-dark-custom" ng-click="five()">5</button>
-                <button type="button" class="number_pad_buttons col-33 button button-dark-custom" ng-click="six()">6</button>
+                <button type="button" class="number_pad_buttons col-33 button " ng-class="{'dark-numberButtons': theme=='dark'}" ng-click="four()">4</button>
+                <button type="button" class="number_pad_buttons col-33 button " ng-class="{'dark-numberButtons': theme=='dark'}" ng-click="five()">5</button>
+                <button type="button" class="number_pad_buttons col-33 button " ng-class="{'dark-numberButtons': theme=='dark'}" ng-click="six()">6</button>
             </div>
             <div class="row">
-                <button type="button" class="number_pad_buttons col-33 button button-dark-custom" ng-click="seven()">7</button>
-                <button type="button" class="number_pad_buttons col-33 button button-dark-custom" ng-click="eight()">8</button>
-                <button type="button" class="number_pad_buttons col-33 button button-dark-custom" ng-click="nine()">9</button>
+                <button type="button" class="number_pad_buttons col-33 button " ng-class="{'dark-numberButtons': theme=='dark'}" ng-click="seven()">7</button>
+                <button type="button" class="number_pad_buttons col-33 button " ng-class="{'dark-numberButtons': theme=='dark'}" ng-click="eight()">8</button>
+                <button type="button" class="number_pad_buttons col-33 button " ng-class="{'dark-numberButtons': theme=='dark'}" ng-click="nine()">9</button>
             </div>
             <div class="row">
-                <button type="button" class="number_pad_buttons col-33 button button-dark-custom" ng-click="decimal()">.</button>
-                <button type="button" class="number_pad_buttons col-33 button button-dark-custom" ng-click="zero()">0</button>
-                <button type="button" class="number_pad_buttons col-33 button button-dark-custom ion-backspace-outline" ng-click="clear()" id="clear-button"></button>
+                <button type="button" class="number_pad_buttons col-33 button " ng-class="{'dark-numberButtons': theme=='dark'}" ng-click="decimal()">.</button>
+                <button type="button" class="number_pad_buttons col-33 button " ng-class="{'dark-numberButtons': theme=='dark'}" ng-click="zero()">0</button>
+                <button type="button" class="number_pad_buttons col-33 button ion-backspace-outline" ng-class="{'dark-deleteIcon': theme=='dark', 'dark-numberButtons': theme == 'dark'}" ng-click="clear()" id="clear-button"></button>
             </div>
             <div class="row">
-                <button type="button" class="number_pad_buttons_equal button " ng-click="equal()" ng-hide="press_equal">Equal</button>
-                <button type="button" class="number_pad_buttons_add button animation bounceInUp" ng-click="addToList()" ng-show="press_equal">Add to Cart</button>
+                <button type="button" class="number_pad_buttons_equal button" ng-class="{'dark-equalBtn': theme=='dark'}" ng-click="equal()" ng-hide="press_equal">Equal</button>
+                <button type="button" class="number_pad_buttons_add button animation bounceInUp" ng-class="{'dark-addBtn': theme=='dark'}" ng-click="addToList()" ng-show="press_equal">Add to Cart</button>
             </div>
         </div>
         <!-- end of calc buttons -->

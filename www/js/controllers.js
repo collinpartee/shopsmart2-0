@@ -4,7 +4,7 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('mainScreenController', function ($scope, $rootScope, global) {
+.controller('mainScreenController', function ($scope, $rootScope, $ionicSideMenuDelegate, global) {
     $scope.$on("$ionicView.enter", function (scopes) {
         console.log("local storage " + window.localStorage['showIntro'] + " showIntro: " + $scope.showIntro);
         //            if (window.localStorage['showIntro'] == undefined) {
@@ -15,9 +15,17 @@ angular.module('starter.controllers', [])
         //            }
 
     });
+    
+     $scope.toggleLeftSideMenu = function() {
+      $ionicSideMenuDelegate.toggleLeft();
+   };
+ $scope.toggleRightSideMenu = function() {
+      $ionicSideMenuDelegate.toggleRight();
+   };
 
     $scope.showIntro = window.localStorage['showIntro'] || 'true';
     $scope.all_prices = global.all_prices;
+    $scope.theme = global.theme;
 
     $scope.original_price = '';
     $scope.total_price = 0;
@@ -236,11 +244,16 @@ angular.module('starter.controllers', [])
 })
 
 .controller('sideMenuController', function ($scope, $ionicListDelegate, global) {
+    $scope.$on("$ionicView.enter", function (scopes) {
+        $scope.theme = global.theme;
+        console.log($scope.theme);
+
+    });
+    
     $scope.tax_amount = 0;
 
     $scope.total_prices = global.total_prices;
     $scope.original_prices = global.original_prices
-
     $scope.all_prices = global.all_prices;
 
     //var firstItem = global.total_prices;

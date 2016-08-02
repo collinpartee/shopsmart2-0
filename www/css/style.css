@@ -1,35 +1,155 @@
 /* ~~~~~~~~~~~~~~~~~~ */
-/* IONIC */
+/* COLORS */
 /* ~~~~~~~~~~~~~~~~~~ */
-ion-content {
-    /*    background-color: #1d1d1d;*/
+
+/* dark color scheme */
+.dark{
+    background-color: rgb(6, 0, 0);
+    border-color: rgb(6,0,0) !important;
+}
+
+.dark-buttonBar .button-bar-activated{
+    background-color: rgb(6, 0, 0) !important;
+    color: #F1C40F !important;
+    border-top: 1px;
+    border-image: linear-gradient( to right, rgba(0, 0, 0, 0), #F1C40F 45%, #F1C40F 50%, rgba(0, 0, 0, 0));
+    border-image-slice: 1;
+}
+
+.dark-buttonBar a{
+    background-color: rgb(36, 34, 34);
+    color: white;
+    border-color: rgb(36, 34, 34);
+}
+
+.dark-icon {
+    color: #F1C40F;
+}
+
+.dark-listCmpnt{
+    background-color: #1d1d1d;
+    color: #212121 !important;
+    border-bottom: 1px;
+    border-image: linear-gradient( to right, rgba(0, 0, 0, 0), rgba(255, 255, 255, 1) 45%, rgba(255, 255, 255, 1) 50%, rgba(0, 0, 0, 0));
+    border-image-slice: 1;
+}
+.dark-listCmpnt .item-content{
     background-color: rgb(6, 0, 0);
 }
 
-.icon {
+.dark-ionItem .item-content{
+    background-color: rgba(6, 0, 0, 1) !important;
+}
+
+.dark-headerBar{
+    background-color: rgb(6,0,0) !important;
+    border-color: rgb(6,0,0) !important;
+}
+.dark-quitIntroBtn{
+    background-color: goldenrod;
+    border-color: goldenrod;
+    color: white;
+}
+
+.dark-totalPriceBubble {
+    background-color: rgba(241, 196, 15, .5);
+    color: white;
+    border: 1px solid rgba(241, 196, 15, .5);
+}
+
+.dark-textLght{
+    color: whitesmoke !important;
+}
+
+.dark-textAccent{
     color: #F1C40F;
 }
+
+.dark-numberButtons{
+    border: 1px solid rgb(6, 0, 0);
+    background-color: rgb(36, 34, 34);
+        color: white;
+}
+.dark-numberButtons:hover{
+        color: white;
+}
+
+.dark-equalBtn {
+    background-color: #27ae60;
+    color: whitesmoke;
+}
+
+.dark-equalBtn:hover {
+    color: whitesmoke;
+}
+.dark-equalBtn:active {
+    background-color: #27ae60;
+}
+
+.dark-addBtn {
+    background-color: #2196F3;
+    color: whitesmoke;
+}
+
+.dark-addBtn:hover {
+    color: white;
+}
+
+.dark-addBtn:active {
+    background-color: #2196F3
+}
+
+.dark-deleteIcon{
+    color: red;
+}
+
+.dark-badge:after {
+    content: attr(data-count);
+    position: absolute;
+    background: rgba(241, 196, 15, .5);
+    height: 1.9rem;
+    top: -1em;
+    right: -1.3em;
+    width: 1.9rem;
+    text-align: center;
+    line-height: 1.9rem;
+    font-size: 12px;
+    border-radius: 50%;
+    color: white;
+    border: 1px solid rgba(241, 196, 15, .5);
+}
+
+.dark-bkgAccent{
+    background-color: rgba(36, 34, 34, 0.5);
+}
+
+/* ~~~~~~~~~~~~~~~~~~ */
+/* IONIC */
+/* ~~~~~~~~~~~~~~~~~~ */
+
+ion-content {
+}
+
+.icon {
+/*    color: #F1C40F;*/
+}
+
 .button-bar-custom {
     height: 8%;
     position: absolute;
     bottom: 0;
 }
 
-.button-bar-custom a {
-    background-color: rgb(36, 34, 34);
-    color: white;
-    border-color: rgb(36, 34, 34);
+.button-bar-custom .button-bar-activated {
+/*    background-color: orangered;*/
 }
+
 .button-bar-activated {
-    background-color: rgb(6, 0, 0) !important;
-    color: #F1C40F !important;
-    /*    border: rgb(6, 0, 0) !important;*/
-    border-top: 1px;
-    border-image: linear-gradient( to right, rgba(0, 0, 0, 0), #F1C40F 45%, #F1C40F 50%, rgba(0, 0, 0, 0));
-    border-image-slice: 1;
+   
 }
+
 .item-content {
-    background-color: rgba(6, 0, 0, 1) !important;
+/*    background-color: rgba(6, 0, 0, 1) !important;*/
 }
 
 .range.range-positive input::-webkit-slider-thumb:before {
@@ -39,9 +159,11 @@ ion-content {
 .range.range-positive input::-ms-fill-lower {
     background: #F1C40F !important;
 }
+
 .button.button-assertive {
     background-color: rgba(239, 71, 58, .5) !important;
 }
+
 .checkbox-assertive input:checked:before,
 .checkbox-assertive input:checked + .checkbox-icon:before {
     background: goldenrod !important;
@@ -52,12 +174,19 @@ ion-content {
 .checkbox-assertive .checkbox-icon:before {
     border-color: goldenrod !important;
 }
+
 .scroll-view {
     display: inline !important;
 }
+
 .ng-hide-remove {
     animation: 0.5s flipInX ease !important;
     -webkit-animation: 0.5s flipInX ease !important;
+}
+
+
+.bar-custom .title{
+color: white;
 }
 
 
@@ -78,43 +207,51 @@ body {
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
 }
+
 .row {
     height: 19%;
     padding: 0px;
     width: auto;
 }
+
 .row-content {
     width: 100%;
     margin: auto 0;
     display: flex;
 }
+
 .row-container {
     width: 99%;
     display: flex;
     margin: 0 auto;
 }
+
 .custom_row {
     height: auto;
     padding: auto;
     display: block;
     width: 55%;
 }
+
 .custom-col2 {
     text-align: center;
     /*    width: 50%;*/
-    font-size: 1.9em;
+    font-size: 1.9rem;
     margin: auto;
     padding-right: 30px;
 }
+
 .item-note {
     color: black;
     font-size: 18px;
 }
+
 .item-divider {
     padding: auto;
     background-color: transparent;
     color: white;
 }
+
 .button.active,
 .button.activated {
     color: #F1C40F !important;
@@ -134,6 +271,7 @@ body {
     margin-top: -10px;
 }
 
+
 /* ~~~~~~~~~~~~~~~~~~ */
 /* INTRO BOX */
 /* ~~~~~~~~~~~~~~~~~~ */
@@ -148,33 +286,34 @@ body {
     top: 0px;
     z-index: 99;
 }
+
 .introImage {
     width: 100%;
 }
+
 .floating-button {
     position: absolute;
     top: 65%;
     width: 50%;
     left: 30%;
 }
-.quitIntroBtn{
-    width:100%; 
-    background-color: goldenrod; 
-    border-color:goldenrod;
-    color: white;
+
+.quitIntroBtn {
+    width: 100%;
 }
+
 
 /* ~~~~~~~~~~~~~~~~~~ */
 /* MAIN SCREEN */
 /* ~~~~~~~~~~~~~~~~~~ */
+
 .container {
     width: 100%;
     height: 100%;
     /*    position: fixed;*/
-    padding-top: 18pt;
-    background-color: #1d1d1d;
-    background-color: rgb(6, 0, 0);
+    padding-top: 22pt;
 }
+
 .top {
     height: 33%;
     text-align: right;
@@ -182,49 +321,51 @@ body {
     padding: 10px;
     position: relative;
 }
+
 .total_price_bubble {
     padding: 20px 10px;
     position: absolute;
-    background-color: rgba(241, 196, 15, .5);
-    color: white;
     font-weight: 500;
     font-size: 1.2rem;
     max-height: 6rem;
     border-radius: 50%;
-    border: 1px solid rgba(241, 196, 15, .5);
     top: 30%;
 }
+
 .total_price_bubble.ng-hide-remove {
     animation: 0.5s zoomIn ease !important;
     -webkit-animation: 0.5s zoomIn ease !important;
 }
+
 #original_price_label {
-    font-size: 300%;
+    font-size: 3rem;
     /*    height: 23%;*/
-    color: whitesmoke;
     margin-top: 0;
     margin-bottom: 0;
     -vendor-animation-duration: 3s;
 }
+
 #total_price_label {
-    font-size: 200%;
-    color: #F1C40F;
+    font-size: 2rem;
     width: 100%;
     height: 23%;
 }
-.animate-fadeIn.ng-hide-remove { /* also used on side menu */
+
+.animate-fadeIn.ng-hide-remove {
+    /* also used on side menu */
     animation: 0.5s fadeIn ease !important;
     -webkit-animation: 0.5s fadeIn ease !important;
 }
+
 #percent_text_label {
     height: 23%;
     /*
     padding: 0px;
     margin: 0px;
 */
-    color: whitesmoke;
-    font-size: 150%;
+    font-size: 1.5rem;
 }
+
 .discount-slider {
     position: absolute;
     width: 90%;
@@ -232,133 +373,101 @@ body {
     bottom: 0;
     display: block;
 }
+
 .middle button {
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
-    font-size: 2.3em;
+    font-size: 2.3rem;
 }
+
 .middle {
     height: 75%;
 }
+
 .number_pad_buttons {
-    background-color: gray;
-    border: 1px solid rgb(6, 0, 0);
-    color: white;
-    font-size: 2.5em !important;
+    font-size: 2.5rem !important;
     border-radius: 3px;
     border-radius: 3px;
     margin-bottom: 3px;
 }
 
-.number_pad_buttons:hover {
-    color: white;
-}
 .number_pad_buttons_equal {
     border: 0px;
-    background-color: #27ae60;
-    font-size: 2.4em !important;
-    color: whitesmoke;
+    font-size: 2.4rem !important;
     width: 100%;
 }
 
-.number_pad_buttons_equal:hover {
-    color: white;
-}
-
-.number_pad_buttons_equal:active {
-    background-color: #27ae60;
-}
 .number_pad_buttons_add {
     border: 0px;
-    background-color: #2196F3;
-    font-size: 2.4em;
-    color: whitesmoke;
+    font-size: 2.4rem !important;
     width: 100%;
 }
 
-.number_pad_buttons_add:hover {
-    color: white;
-}
-
-.number_pad_buttons_add:active {
-    background-color: #2196F3
-}
 .percent_text.ng-hide-remove {
     animation: 0.5s fadeIn ease !important;
     -webkit-animation: 0.5s fadeIn ease !important;
 }
-.button-dark-custom {
-    background-color: rgb(36, 34, 34);
-}
+
 .ion-backspace-outline {
     font-size: 200%;
-    color: red;
 }
+
 
 /* ~~~~~~~~~~~~~~~~~~ */
 /* SIDE MENU */
 /* ~~~~~~~~~~~~~~~~~~ */
-.sideMenu-content{
+
+.sideMenu-content {
     padding-top: 18pt;
+    height: 100%;
 }
-.showThings-div{
+
+.showThings-div {
     height: 92%;
 }
-.totalPrice-txt-header{
-    color: white; 
+
+.totalPrice-txt-header {
     float: right;
 }
-.totalPrice-txt{
-    color:white; 
+
+.totalPrice-txt {
     padding-right: 15px;
 }
+
 .left-list-item {
-    color: #aaa;
     font-size: 14px;
 }
+
 .custom-list-item.ng-enter {
     animation: 0.5s slideInLeft ease !important;
     -webkit-animation: 0.5s slideInLeft ease !important;
+    display: block !important;
 }
 
 .custom-list-item.ng-leave {
     animation: 0.5s slideOutLeft ease !important;
     -webkit-animation: 0.5s slideOutLeft ease !important;
 }
+
 .badge {
     color: transparent;
 }
 
-.badge:after {
-    content: attr(data-count);
-    position: absolute;
-    background: rgba(241, 196, 15, .5);
-    height: 1.9rem;
-    top: -1em;
-    right: -1.3em;
-    width: 1.9rem;
-    text-align: center;
-    line-height: 1.9rem;
-    font-size: 12px;
-    border-radius: 50%;
-    color: white;
-    border: 1px solid rgba(241, 196, 15, .5);
-}
 .option_button {
     margin: 0 auto;
 }
-.result-header-row{
-    background-color: rgba(36, 34, 34, 0.5); 
-    height: 12%;
+
+.result-header-row {
+    height: 10%;
+    border-radius: 2px;
 }
+
 #thingItem {
-	background-color: rgba(36, 34, 34, 0.5); 
     padding: 25px 15px;
-    color:white;
+    color: white;
+    border-radius: 3px;
 }
-.animate-slideInLeft{
-    color: rgb(127, 197, 195);
-}
+
 .animate-slideInLeft.ng-hide-remove {
     animation: 0.5s slideInRight ease !important;
     -webkit-animation: 0.5s slideInRight ease !important;
@@ -368,26 +477,22 @@ body {
     animation: 0.5s slideOutRight ease !important;
     -webkit-animation: 0.5s slideOutRight ease !important;
 }
-.custom-list .item {
-    color: #212121 !important;
-    /*    border-color: none !important;*/
-    /*    background-color: none !important;*/
-    border-bottom: 1px;
-    border-image: linear-gradient( to right, rgba(0, 0, 0, 0), rgba(255, 255, 255, 1) 45%, rgba(255, 255, 255, 1) 50%, rgba(0, 0, 0, 0));
-    border-image-slice: 1;
-}
+
 .item-note-total {
-	color:white; 
-    display:flex;
+    color: white;
+    display: flex;
 }
+
 .thing-item {
-    margin: auto 0; 
+    margin: auto 0;
     color: white;
 }
+
 .checkedThing {
     color: goldenrod;
     text-decoration: line-through;
 }
+
 .watermark {
     border: 1px solid #F1C40F;
     width: 250px;
@@ -412,7 +517,9 @@ body {
     z-index: -1 !important;
 }
 
+
 /*  tax side */
+
 .tax_block {
     text-align: center;
     /*	margin-left: 40%;*/
@@ -421,16 +528,17 @@ body {
 }
 
 .tax_block h1 {
-    font-size: 4.3em;
+    font-size: 4.3rem;
     color: whitesmoke;
 }
 
 .tax_block h4 {
     color: whitesmoke;
 }
-#clear-button{
-    color: red; 
-    font-size: 2.7em;   
+
+#clear-button {
+    color: red;
+    font-size: 2.7rem;
 }
 
 .vertical-align-middle {
@@ -446,19 +554,19 @@ body {
     width: 20%;
     margin: auto 0;
     vertical-align: middle;
-    color: #F1C40F;
-    font-size: 1.8em;
+    font-size: 1.8rem;
 }
 
 .circle-button:hover {
     color: #F1C40F;
 }
 
-#big-tax{
-    font-size: 4em; 
-    margin-bottom: 0px; 
-    color:white;   
+#big-tax {
+    font-size: 4rem;
+    margin-bottom: 0px;
+    color: white;
 }
+
 
 /* ~~~~~~~~~~~~~~~~~~ */
 /* ANIMATIONS */

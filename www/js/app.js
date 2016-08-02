@@ -54,6 +54,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 'n
         globalService.original_prices = [];
         globalService.all_prices = [];
         globalService.myTotal = 0;
+        globalService.theme = 'dark';
 
 
 
@@ -71,6 +72,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.filters', 'n
         };
         globalService.setMyTotal = function (myTotal) {
             this.myTotal = myTotal;
+        };
+        globalService.setTheme = function (theme) {
+            this.theme = theme;
         };
 
 
